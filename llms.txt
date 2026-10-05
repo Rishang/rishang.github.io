@@ -48,5 +48,5 @@ Contact: rishangbhavsar22@gmail.com
 ## Optional
 
 - Certifications: Certified Kubernetes Administrator (CKA), Kubernetes and Cloud Native Security Associate (KCSA), HashiCorp Terraform Associate (003), Red Hat Certified Engineer (RHCE)
-- Skills: AWS, Azure, Kubernetes, EKS, Terraform, Ansible, Helm, ArgoCD, Docker, Linux, Grafana, Prometheus, Loki, OIDC, Keycloak, Python, Go, Rust, Bash, FastAPI, Django, PostgreSQL, Redis, MongoDB
+- Skills: AWS, Azure, Kubernetes, EKS, Terraform, Ansible, Helm, ArgoCD, Docker, Linux, Grafana, Prometheus, Loki, Datadog, New Relic, Langfuse, LangSmith, OpenAI, LanceDB, OIDC, Keycloak, Python, Go, Rust, Bash, FastAPI, Django, PostgreSQL, Redis, MongoDB
 - Education: B.E. in Information Technology, Aditya Silver Oak, 2021
