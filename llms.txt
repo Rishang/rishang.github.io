@@ -21,7 +21,7 @@ Contact: rishangbhavsar22@gmail.com
 
 ## Open source projects
 
-- [terraform-aws-fargate](https://registry.terraform.io/modules/Rishang/fargate/aws/latest): Terraform module for ECS Fargate services (service, load balancer target groups and listener rules, service discovery, policy and scheduled autoscaling). About 230k downloads on the Terraform Registry.
+- [terraform-aws-fargate](https://registry.terraform.io/modules/Rishang/fargate/aws/latest): Terraform module for ECS Fargate services (service, load balancer target groups and listener rules, service discovery, policy and scheduled autoscaling). About 230k downloads on the Terraform Registry. Source: https://github.com/Rishang/terraform-aws-fargate
 - [install-release](https://github.com/Rishang/install-release): Python CLI that installs and updates single-binary tools from GitHub, GitLab and Codeberg releases on Linux, macOS and WSL. About 75k PyPI downloads.
 - [helm-charts](https://github.com/Rishang/helm-charts): Two Helm charts on Artifact Hub. loki-stack is a one-install observability stack (Loki, Prometheus, Alertmanager, Grafana, Grafana Alloy). component-chart deploys any app component from a single values.yaml.
 - [cu](https://github.com/Rishang/cu): Go CLI for everyday cloud work. Fuzzy-picks resources from AWS, Azure Key Vault, HashiCorp Vault, Infisical and Kubernetes and prints JSON; also semantic config diffs and format conversion.
