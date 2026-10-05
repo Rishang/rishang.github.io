@@ -7,6 +7,7 @@ Portfolio site for Rishang Bhavsar, served by GitHub Pages at https://rishang.gi
 - `index.html`: the portfolio page. Single file, inline CSS and JS, no framework.
 - `llms.txt`: plain-text summary of the same portfolio for LLMs, following https://llmstxt.org.
 - `.nojekyll`: keeps GitHub Pages from running Jekyll. Don't delete it.
+- `README.md`: repo overview for humans. Update its file table if you add or remove files.
 
 ## Keep `index.html` and `llms.txt` in sync
 
