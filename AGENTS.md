@@ -18,10 +18,10 @@ Section mapping:
 | `index.html` | `llms.txt` |
 |---|---|
 | Hero lede, proof line, `rishang.yaml` manifest | Blockquote summary and the paragraph below it |
-| `#impact` Results | "Key results" list |
-| `#oss` Projects (featured and More tools) | `## Open source projects` |
-| `#stack` Stack and tooling | `## Optional` Skills line |
 | `#work` Experience | `## Experience` |
+| `#stack` Stack and tooling | `## Optional` Skills line |
+| `#oss` Projects (featured and More tools) | `## Open source projects` |
+| `#impact` Results | "Key results" list |
 | `#talks` Talks | `## Talks` |
 | `#creds` Certifications and education | `## Optional` |
 | `#contact` and header links | Contact line and `## Profile` |

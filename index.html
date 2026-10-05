@@ -254,10 +254,10 @@ footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: .9rem; display
 <header class="bar">
   <a class="who" href="#top" aria-label="Back to top"><img src="https://github.com/Rishang.png" alt="" width="32" height="32"></a>
   <nav aria-label="Sections">
-    <a href="#impact">Results</a>
-    <a href="#oss">Projects</a>
-    <a href="#stack">Stack</a>
     <a href="#work">Experience</a>
+    <a href="#stack">Stack</a>
+    <a href="#oss">Projects</a>
+    <a href="#impact">Results</a>
     <a href="#talks">Talks</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -299,38 +299,140 @@ footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: .9rem; display
   </div>
 </div>
 
-<section id="impact">
+<section id="work">
   <div class="sec-head">
     <div>
-      <h2>Results</h2>
-      <p class="note">What changed, by how much, and how I did it.</p>
+      <h2>Experience</h2>
+      <p class="note"><span class="yrs" data-suffix="+ years">5+ years</span> of DevOps, from IoT pipelines to compliance-grade AWS.</p>
     </div>
-    <div class="diffs">
-      <article class="diff">
-        <h3>Cut AWS spend by more than half at SmartSense</h3>
-        <p>I moved the platform from shared multi-tenancy to a single-tenant architecture designed for SOC 2, HIPAA and ISO, with every resource defined in Terraform. Each client got isolation, and the bill still went down.</p>
-        <div class="lines mono">
-          <div class="m"><span>-</span><span>tenancy: shared      aws_cost: 100%</span></div>
-          <div class="p"><span>+</span><span>tenancy: per-client  aws_cost: under 50%</span></div>
+    <ol class="jobs" reversed>
+      <li class="job">
+        <time>2025 – now</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://smartsensesolutions.com/">SmartSense</a>, GIFT City, Gandhinagar</p>
+          <p class="scope">AWS and Azure infrastructure for clients with strict compliance needs.</p>
+          <ul>
+            <li>Cut AWS cost by more than 50% by migrating from multi-tenancy to a secure single-tenant architecture aligned with SOC 2, HIPAA and ISO.</li>
+            <li>Put every Kubernetes resource under GitOps with ArgoCD, so every environment deploys from version control.</li>
+            <li>Made troubleshooting faster for developers and DevOps by connecting Claude Code to Grafana and Kubernetes through AgentGateway and MCP servers.</li>
+            <li>Brought hand-made AWS resources under Terraform with a scanner that generates config from live stacks.</li>
+            <li>Kept test accounts clean with <a href="https://github.com/ss-rishang/aws-tagger">AWS Autotagger</a> (open source). It tags each resource with its owner and creation date, then reminds owners on Slack to delete stale PoCs.</li>
+          </ul>
         </div>
-      </article>
-      <article class="diff">
-        <h3>Took lab validation from weeks to hours at KodeKloud</h3>
-        <p>Validating course labs was manual work that took weeks. I built a framework that tests and validates them automatically, then added AI to generate and fix lab content.</p>
-        <div class="lines mono">
-          <div class="m"><span>-</span><span>lab validation: weeks, manual</span></div>
-          <div class="p"><span>+</span><span>lab validation: a few hours, automated</span></div>
+      </li>
+      <li class="job">
+        <time>2023 – 2025</time>
+        <div>
+          <h3>Lab DevOps Engineer</h3>
+          <p class="org"><a href="https://kodekloud.com/">KodeKloud</a>, remote</p>
+          <p class="scope">The hands-on cloud labs behind KodeKloud's DevOps courses.</p>
+          <ul>
+            <li>Cut lab validation from weeks to a few hours with an automated testing framework, and used AI to generate, fix and manage lab content.</li>
+            <li>Gave learners real AWS accounts safely, with fine-grained role-based access per lab and an in-house cloud-nuke framework that cleans up each session.</li>
+            <li>Built LabUtils, so the team could see lab details and Docker image deprecation alerts in one place instead of digging through files, repos and links.</li>
+            <li>Built and maintained labs for AWS, Kubernetes, Terraform, GitLab, GitHub, Azure, OpenAI and Taskfile.</li>
+          </ul>
         </div>
-      </article>
-      <article class="diff">
-        <h3>Cut internal dev infrastructure cost 70% at OpenXcell</h3>
-        <p>I took this on myself. I reworked the internal development stack so it cost far less to run, and it got faster too.</p>
-        <div class="lines mono">
-          <div class="m"><span>-</span><span>dev_infra_cost: 100%</span></div>
-          <div class="p"><span>+</span><span>dev_infra_cost: 30%, faster</span></div>
+      </li>
+      <li class="job">
+        <time>2022 – 2023</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/techholding">TechHolding</a>, Ahmedabad</p>
+          <ul>
+            <li>Delivered client infrastructure entirely as code, with Terraform and GitOps.</li>
+            <li>Hardened infrastructure against penetration attacks.</li>
+          </ul>
         </div>
-      </article>
+      </li>
+      <li class="job">
+        <time>2021 – 2022</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/openxcell">OpenXcell</a>, Ahmedabad</p>
+          <p class="scope">Infrastructure for fintech, crypto and banking projects.</p>
+          <ul>
+            <li>Cut internal development infrastructure cost by 70%, and made it faster, on my own initiative.</li>
+            <li>Moved AWS authentication to OIDC federation with Keycloak and GitLab/GitHub CI/CD, and built custom AWS OIDC brokers in Python.</li>
+            <li>Automated the internal Kubernetes stack and client EKS clusters with Terraform.</li>
+            <li>Named Employee of the Month.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <time>2021</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/electromech-corporation">ElectroMech Corporation</a>, Ahmedabad</p>
+          <ul>
+            <li>Built <a href="https://github.com/Rishang/aws-autoscale-warmup">aws-autoscale-warmup</a> (open source) for scheduled autoscaling.</li>
+            <li>Automated multi-account AWS tenant stacks with Terraform.</li>
+            <li>Streamed IoT device logs through Lambda into Timestream, with QuickSight dashboards, keeping cost and performance in check.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="sec-head">
+    <div>
+      <h2>Stack and tooling</h2>
+      <p class="note">What I reach for, and what I've actually done with it.</p>
     </div>
+    <dl class="tooling">
+      <div class="tool-row">
+        <dt>Cloud</dt>
+        <dd>
+          <ul class="stack core"><li>AWS</li><li>Azure</li></ul>
+          <p>Compliance-grade single-tenant AWS (SOC 2, HIPAA, ISO), multi-account tenant stacks, and cost work that took bills down 50% and 70%.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Infrastructure as code</dt>
+        <dd>
+          <ul class="stack core"><li>Terraform</li><li>Ansible</li><li>Helm</li></ul>
+          <p>Everything starts in Terraform. I publish reusable modules and charts, and I wrote a scanner that turns click-ops AWS resources back into Terraform.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Kubernetes and GitOps</dt>
+        <dd>
+          <ul class="stack core"><li>Kubernetes</li><li>EKS</li><li>ArgoCD</li><li>Docker</li><li>Cilium / eBPF</li></ul>
+          <p>Every Kubernetes resource goes through ArgoCD, across every environment. I'm CKA and KCSA certified, and I've given a talk on Cilium and eBPF.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Observability</dt>
+        <dd>
+          <ul class="stack core"><li>Grafana</li><li>Prometheus</li><li>Loki</li><li>Alloy</li></ul>
+          <p>I maintain loki-stack, a one-install observability chart, and I've spoken twice on observability for AI and LLM apps.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Identity and security</dt>
+        <dd>
+          <ul class="stack core"><li>OIDC</li><li>Keycloak</li><li>IAM</li><li>Zero trust</li></ul>
+          <p>I moved AWS access to OIDC federation with Keycloak, and built aws-oidc-broker to do it without AWS SSO. Background in penetration testing.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>AI for operations</dt>
+        <dd>
+          <ul class="stack core"><li>Claude Code</li><li>MCP</li><li>AgentGateway</li><li>Agno</li></ul>
+          <p>Claude Code connected to Grafana and Kubernetes through MCP servers, so developers and DevOps can troubleshoot by asking questions instead of digging. I also built agno-spec-builder, which turns YAML specs into Agno agents and workflows.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Code and data</dt>
+        <dd>
+          <ul class="stack"><li>Python</li><li>Bash</li><li>Go</li><li>Rust</li><li>FastAPI</li><li>Django</li><li>Node.js (basics)</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li></ul>
+          <p>Python is my default for tooling. Go when a CLI should ship as one static binary, like cu, and Rust for hterm. Bash for glue. CI/CD runs on GitHub Actions or GitLab CI.</p>
+        </dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -422,140 +524,38 @@ helm install api common-charts/component-chart -f values.yaml</code></pre>
   </div>
 </section>
 
-<section id="stack">
+<section id="impact">
   <div class="sec-head">
     <div>
-      <h2>Stack and tooling</h2>
-      <p class="note">What I reach for, and what I've actually done with it.</p>
+      <h2>Results</h2>
+      <p class="note">What changed, by how much, and how I did it.</p>
     </div>
-    <dl class="tooling">
-      <div class="tool-row">
-        <dt>Cloud</dt>
-        <dd>
-          <ul class="stack core"><li>AWS</li><li>Azure</li></ul>
-          <p>Compliance-grade single-tenant AWS (SOC 2, HIPAA, ISO), multi-account tenant stacks, and cost work that took bills down 50% and 70%.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>Infrastructure as code</dt>
-        <dd>
-          <ul class="stack core"><li>Terraform</li><li>Ansible</li><li>Helm</li></ul>
-          <p>Everything starts in Terraform. I publish reusable modules and charts, and I wrote a scanner that turns click-ops AWS resources back into Terraform.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>Kubernetes and GitOps</dt>
-        <dd>
-          <ul class="stack core"><li>Kubernetes</li><li>EKS</li><li>ArgoCD</li><li>Docker</li><li>Cilium / eBPF</li></ul>
-          <p>Every Kubernetes resource goes through ArgoCD, across every environment. I'm CKA and KCSA certified, and I've given a talk on Cilium and eBPF.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>Observability</dt>
-        <dd>
-          <ul class="stack core"><li>Grafana</li><li>Prometheus</li><li>Loki</li><li>Alloy</li></ul>
-          <p>I maintain loki-stack, a one-install observability chart, and I've spoken twice on observability for AI and LLM apps.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>Identity and security</dt>
-        <dd>
-          <ul class="stack core"><li>OIDC</li><li>Keycloak</li><li>IAM</li><li>Zero trust</li></ul>
-          <p>I moved AWS access to OIDC federation with Keycloak, and built aws-oidc-broker to do it without AWS SSO. Background in penetration testing.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>AI for operations</dt>
-        <dd>
-          <ul class="stack core"><li>Claude Code</li><li>MCP</li><li>AgentGateway</li><li>Agno</li></ul>
-          <p>Claude Code connected to Grafana and Kubernetes through MCP servers, so developers and DevOps can troubleshoot by asking questions instead of digging. I also built agno-spec-builder, which turns YAML specs into Agno agents and workflows.</p>
-        </dd>
-      </div>
-      <div class="tool-row">
-        <dt>Code and data</dt>
-        <dd>
-          <ul class="stack"><li>Python</li><li>Bash</li><li>Go</li><li>Rust</li><li>FastAPI</li><li>Django</li><li>Node.js (basics)</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li></ul>
-          <p>Python is my default for tooling. Go when a CLI should ship as one static binary, like cu, and Rust for hterm. Bash for glue. CI/CD runs on GitHub Actions or GitLab CI.</p>
-        </dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<section id="work">
-  <div class="sec-head">
-    <div>
-      <h2>Experience</h2>
-      <p class="note"><span class="yrs" data-suffix="+ years">5+ years</span> of DevOps, from IoT pipelines to compliance-grade AWS.</p>
+    <div class="diffs">
+      <article class="diff">
+        <h3>Cut AWS spend by more than half at SmartSense</h3>
+        <p>I moved the platform from shared multi-tenancy to a single-tenant architecture designed for SOC 2, HIPAA and ISO, with every resource defined in Terraform. Each client got isolation, and the bill still went down.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>tenancy: shared      aws_cost: 100%</span></div>
+          <div class="p"><span>+</span><span>tenancy: per-client  aws_cost: under 50%</span></div>
+        </div>
+      </article>
+      <article class="diff">
+        <h3>Took lab validation from weeks to hours at KodeKloud</h3>
+        <p>Validating course labs was manual work that took weeks. I built a framework that tests and validates them automatically, then added AI to generate and fix lab content.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>lab validation: weeks, manual</span></div>
+          <div class="p"><span>+</span><span>lab validation: a few hours, automated</span></div>
+        </div>
+      </article>
+      <article class="diff">
+        <h3>Cut internal dev infrastructure cost 70% at OpenXcell</h3>
+        <p>I took this on myself. I reworked the internal development stack so it cost far less to run, and it got faster too.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>dev_infra_cost: 100%</span></div>
+          <div class="p"><span>+</span><span>dev_infra_cost: 30%, faster</span></div>
+        </div>
+      </article>
     </div>
-    <ol class="jobs" reversed>
-      <li class="job">
-        <time>2025 – now</time>
-        <div>
-          <h3>DevOps Engineer</h3>
-          <p class="org"><a href="https://smartsensesolutions.com/">SmartSense</a>, GIFT City, Gandhinagar</p>
-          <p class="scope">AWS and Azure infrastructure for clients with strict compliance needs.</p>
-          <ul>
-            <li>Cut AWS cost by more than 50% by migrating from multi-tenancy to a secure single-tenant architecture aligned with SOC 2, HIPAA and ISO.</li>
-            <li>Put every Kubernetes resource under GitOps with ArgoCD, so every environment deploys from version control.</li>
-            <li>Made troubleshooting faster for developers and DevOps by connecting Claude Code to Grafana and Kubernetes through AgentGateway and MCP servers.</li>
-            <li>Brought hand-made AWS resources under Terraform with a scanner that generates config from live stacks.</li>
-            <li>Kept test accounts clean with <a href="https://github.com/ss-rishang/aws-tagger">AWS Autotagger</a> (open source). It tags each resource with its owner and creation date, then reminds owners on Slack to delete stale PoCs.</li>
-          </ul>
-        </div>
-      </li>
-      <li class="job">
-        <time>2023 – 2025</time>
-        <div>
-          <h3>Lab DevOps Engineer</h3>
-          <p class="org"><a href="https://kodekloud.com/">KodeKloud</a>, remote</p>
-          <p class="scope">The hands-on cloud labs behind KodeKloud's DevOps courses.</p>
-          <ul>
-            <li>Cut lab validation from weeks to a few hours with an automated testing framework, and used AI to generate, fix and manage lab content.</li>
-            <li>Gave learners real AWS accounts safely, with fine-grained role-based access per lab and an in-house cloud-nuke framework that cleans up each session.</li>
-            <li>Built LabUtils, so the team could see lab details and Docker image deprecation alerts in one place instead of digging through files, repos and links.</li>
-            <li>Built and maintained labs for AWS, Kubernetes, Terraform, GitLab, GitHub, Azure, OpenAI and Taskfile.</li>
-          </ul>
-        </div>
-      </li>
-      <li class="job">
-        <time>2022 – 2023</time>
-        <div>
-          <h3>DevOps Engineer</h3>
-          <p class="org"><a href="https://www.linkedin.com/company/techholding">TechHolding</a>, Ahmedabad</p>
-          <ul>
-            <li>Delivered client infrastructure entirely as code, with Terraform and GitOps.</li>
-            <li>Hardened infrastructure against penetration attacks.</li>
-          </ul>
-        </div>
-      </li>
-      <li class="job">
-        <time>2021 – 2022</time>
-        <div>
-          <h3>DevOps Engineer</h3>
-          <p class="org"><a href="https://www.linkedin.com/company/openxcell">OpenXcell</a>, Ahmedabad</p>
-          <p class="scope">Infrastructure for fintech, crypto and banking projects.</p>
-          <ul>
-            <li>Cut internal development infrastructure cost by 70%, and made it faster, on my own initiative.</li>
-            <li>Moved AWS authentication to OIDC federation with Keycloak and GitLab/GitHub CI/CD, and built custom AWS OIDC brokers in Python.</li>
-            <li>Automated the internal Kubernetes stack and client EKS clusters with Terraform.</li>
-            <li>Named Employee of the Month.</li>
-          </ul>
-        </div>
-      </li>
-      <li class="job">
-        <time>2021</time>
-        <div>
-          <h3>DevOps Engineer</h3>
-          <p class="org"><a href="https://www.linkedin.com/company/electromech-corporation">ElectroMech Corporation</a>, Ahmedabad</p>
-          <ul>
-            <li>Built <a href="https://github.com/Rishang/aws-autoscale-warmup">aws-autoscale-warmup</a> (open source) for scheduled autoscaling.</li>
-            <li>Automated multi-account AWS tenant stacks with Terraform.</li>
-            <li>Streamed IoT device logs through Lambda into Timestream, with QuickSight dashboards, keeping cost and performance in check.</li>
-          </ul>
-        </div>
-      </li>
-    </ol>
   </div>
 </section>
 
