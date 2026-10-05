@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rishang Bhavsar</title>
+<meta name="description" content="Rishang Bhavsar, DevOps engineer in Ahmedabad building secure, self-service platforms on AWS, Azure and Kubernetes.">
+<meta property="og:title" content="Rishang Bhavsar, DevOps and platform engineering">
+<meta property="og:description" content="Terraform, Kubernetes, GitOps and the tooling that keeps cloud bills honest.">
+<meta property="og:image" content="https://github.com/Rishang.png">
+<meta property="og:url" content="https://rishang.github.io/">
+<link rel="canonical" href="https://rishang.github.io/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="icon" href="https://github.com/Rishang.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #eef1f3;
+  --paper-2: #e2e7eb;
+  --ink: #16233f;
+  --ink-soft: #4a5872;
+  --rule: #c5ced8;
+  --ok: #1f7a4d;
+  --add: #d9efe2;
+  --del: #f6e1d6;
+  --del-ink: #9a3b12;
+  --mark: #b8740f;
+  --code-bg: #16233f;
+  --code-ink: #dbe4f0;
+  --code-key: #8fb4ff;
+  --code-dim: #8091ad;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1729;
+    --paper-2: #16213a;
+    --ink: #e3e9f2;
+    --ink-soft: #9aa8c0;
+    --rule: #2a3754;
+    --ok: #4fc58a;
+    --add: #163a2a;
+    --del: #3d2216;
+    --del-ink: #f0a07a;
+    --mark: #e6a945;
+    --code-bg: #0a1120;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1729; --paper-2: #16213a; --ink: #e3e9f2; --ink-soft: #9aa8c0;
+  --rule: #2a3754; --ok: #4fc58a; --add: #163a2a; --del: #3d2216;
+  --del-ink: #f0a07a; --mark: #e6a945; --code-bg: #0a1120;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 "Schibsted Grotesk", system-ui, sans-serif;
+  font-feature-settings: "ss01";
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
+code, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+/* top bar */
+.bar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; gap: 16px; }
+.bar a { text-decoration: none; }
+.who { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.who img { width: 32px; height: 32px; border-radius: 50%; }
+.bar nav { display: flex; gap: 20px; font-size: .95rem; color: var(--ink-soft); }
+.bar nav a:hover { color: var(--ink); }
+@media (max-width: 640px) { .bar nav { display: none; } }
+
+/* hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 56px 0 88px;
+}
+.hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: .92;
+  letter-spacing: -.035em;
+  margin: 0 0 28px;
+}
+.hero p.lede { font-size: 1.3rem; line-height: 1.45; max-width: 30ch; margin: 0 0 32px; color: var(--ink-soft); }
+.hero p.lede strong { color: var(--ink); font-weight: 500; }
+.hero p.proof { margin: -16px 0 32px; font-weight: 500; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block; padding: 12px 20px; border-radius: 6px;
+  font-weight: 500; text-decoration: none; border: 1.5px solid var(--ink);
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+/* manifest */
+.manifest {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-radius: 10px;
+  padding: 22px 24px 24px;
+  font-size: .86rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  box-shadow: 0 1px 0 var(--rule), 0 24px 48px -28px rgba(22, 35, 63, .55);
+}
+.manifest .file { color: var(--code-dim); margin-bottom: 10px; display: flex; justify-content: space-between; gap: 12px; }
+.manifest pre { margin: 0; font: inherit; white-space: pre; }
+.k { color: var(--code-key); }
+.c { color: var(--code-dim); }
+.cond { display: inline-block; min-width: 8ch; transition: color .3s; }
+.cond[data-state="Unknown"] { color: var(--code-dim); }
+.cond[data-state="True"] { color: #6fe0a3; }
+.phase { font-weight: 600; }
+.phase[data-state="Progressing"] { color: #ffcf7a; }
+.phase[data-state="Ready"] { color: #6fe0a3; }
+
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 32px 0 64px; }
+  .manifest .file span + span { display: none; }
+}
+
+/* sections */
+section { padding: 72px 0; border-top: 1px solid var(--rule); }
+.sec-head { display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
+.sec-head h2 { font-size: 1.75rem; line-height: 1.15; letter-spacing: -.02em; margin: 0; font-weight: 700; }
+.sec-head .note { color: var(--ink-soft); margin: 10px 0 0; font-size: .98rem; max-width: 28ch; }
+@media (max-width: 880px) { .sec-head { grid-template-columns: 1fr; gap: 24px; } }
+
+/* diffs */
+.diffs { display: grid; gap: 28px; }
+.diff h3 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 700; }
+.diff p { margin: 0 0 12px; color: var(--ink-soft); max-width: 62ch; }
+.diff .lines { border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); font-size: .88rem; }
+.diff .lines div { padding: 6px 14px; display: flex; gap: 12px; }
+.diff .lines .m { background: var(--del); color: var(--del-ink); }
+.diff .lines .p { background: var(--add); color: var(--ok); font-weight: 600; }
+.diff .lines span:first-child { width: 1ch; flex: none; }
+.diff .lines span + span { white-space: pre-wrap; }
+
+/* experience */
+.jobs { list-style: none; margin: 0; padding: 0; }
+.job { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 0 0 40px; }
+.job + .job { padding-top: 40px; border-top: 1px dashed var(--rule); }
+.job time { color: var(--ink-soft); font-size: .92rem; font-variant-numeric: tabular-nums; padding-top: 4px; }
+.job h3 { margin: 0; font-size: 1.25rem; }
+.job .org { color: var(--ink-soft); margin: 2px 0 12px; }
+.job .scope { margin: -4px 0 12px; font-weight: 500; max-width: 64ch; }
+.job ul { margin: 0; padding-left: 1.1em; max-width: 68ch; }
+.job li { margin: 0 0 6px; }
+.job li::marker { color: var(--mark); }
+@media (max-width: 600px) { .job { grid-template-columns: 1fr; gap: 6px; } }
+
+.sec-head > *, .feat > * { min-width: 0; }
+/* showcase */
+.showcase { display: grid; gap: 0; }
+.feat { display: grid; grid-template-columns: 170px 1fr; gap: 32px; padding: 0 0 40px; }
+.feat + .feat { padding-top: 40px; border-top: 1px solid var(--rule); }
+.feat-stat .big {
+  font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1;
+  letter-spacing: -.02em; margin: 4px 0 6px; font-variant-numeric: tabular-nums;
+}
+.feat-stat .unit { margin: 0; color: var(--ink-soft); font-size: .95rem; max-width: 22ch; }
+.feat-body h3 { margin: 0 0 8px; font-size: 1.35rem; }
+.feat-body h3 a { text-decoration: none; }
+.feat-body h3 a:hover { text-decoration: underline; }
+.feat-body > p { margin: 0 0 14px; max-width: 64ch; }
+.snippet {
+  background: var(--code-bg); color: var(--code-ink); border-radius: 6px;
+  padding: 14px 16px; margin: 0 0 14px; font-size: .84rem; line-height: 1.6; overflow-x: auto;
+}
+.links { display: flex; flex-wrap: wrap; gap: 20px; font-weight: 500; }
+.sec-head.more { margin-top: 24px; }
+.more-h { margin: 0; font-size: 1.15rem; }
+@media (max-width: 720px) { .feat { grid-template-columns: 1fr; gap: 16px; } }
+
+/* projects */
+.projects { list-style: none; margin: 0; padding: 0; }
+.projects li { border-top: 1px solid var(--rule); }
+.projects li:last-child { border-bottom: 1px solid var(--rule); }
+.projects a {
+  display: grid; grid-template-columns: 1fr 1.6fr 6rem; gap: 24px; align-items: baseline;
+  padding: 20px 4px; text-decoration: none;
+}
+.projects a:hover { background: var(--paper-2); }
+.projects a:hover .name { text-decoration: underline; }
+.projects .name { font-weight: 700; font-size: 1.15rem; }
+.projects .what { color: var(--ink-soft); }
+.projects .where { color: var(--ink-soft); font-size: .85rem; white-space: nowrap; text-align: right; }
+@media (max-width: 720px) {
+  .projects a { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* tooling */
+.tooling { margin: 0; }
+.tool-row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 20px 0; border-top: 1px solid var(--rule); }
+.tool-row:last-child { border-bottom: 1px solid var(--rule); }
+.tool-row dt { font-weight: 700; padding-top: 4px; }
+.tool-row dd { margin: 0; }
+.tool-row .stack { margin: 0 0 10px; }
+.tool-row p { margin: 0; color: var(--ink-soft); max-width: 64ch; }
+@media (max-width: 720px) { .tool-row { grid-template-columns: 1fr; gap: 8px; } }
+
+/* talks */
+.talks { list-style: none; margin: 0; padding: 0; }
+.talks li { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--rule); }
+.talks li:last-child { border-bottom: 1px solid var(--rule); }
+.talks time { color: var(--ink-soft); font-size: .92rem; padding-top: 3px; font-variant-numeric: tabular-nums; }
+.talks .t { font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+.talks .t:hover { text-decoration: underline; }
+.talks p { margin: 2px 0 0; color: var(--ink-soft); }
+@media (max-width: 600px) { .talks li { grid-template-columns: 1fr; gap: 4px; } }
+
+/* stack + certs */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+@media (max-width: 720px) { .two { grid-template-columns: 1fr; } }
+.two h3 { font-size: 1.05rem; margin: 0 0 14px; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+.stack li { padding: 4px 12px; border: 1px solid var(--rule); border-radius: 999px; font-size: .92rem; }
+.stack.core li { border-color: var(--ink); font-weight: 500; }
+.certs { list-style: none; margin: 0; padding: 0; }
+.certs li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.certs .by { color: var(--ink-soft); font-size: .92rem; text-align: right; }
+.extra { margin-top: 40px; display: grid; gap: 12px; max-width: 68ch; }
+.extra p { margin: 0; }
+
+/* contact */
+.contact h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 900; letter-spacing: -.03em; line-height: 1; margin: 0 0 20px; }
+.contact p { color: var(--ink-soft); max-width: 46ch; margin: 0 0 28px; }
+footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: .9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.theme-toggle { background: none; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 6px; padding: 4px 10px; font: inherit; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="bar">
+  <a class="who" href="#top" aria-label="Back to top"><img src="https://github.com/Rishang.png" alt="" width="32" height="32"></a>
+  <nav aria-label="Sections">
+    <a href="#impact">Results</a>
+    <a href="#oss">Projects</a>
+    <a href="#stack">Stack</a>
+    <a href="#work">Experience</a>
+    <a href="#talks">Talks</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div>
+    <h1>Rishang Bhavsar</h1>
+    <p class="lede">I'm a DevOps engineer at <strong>SmartSense</strong>, building secure, self-service AWS and Azure platforms with Terraform and ArgoCD. Before that, I automated the cloud labs at KodeKloud.</p>
+    <p class="proof">My open-source infra tools have been downloaded more than 300,000 times.</p>
+    <div class="ctas">
+      <a class="btn primary" href="mailto:rishangbhavsar22@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/Rishang">See my GitHub</a>
+    </div>
+  </div>
+
+  <div class="manifest mono" aria-label="Profile written as a Kubernetes-style manifest">
+    <div class="file"><span>rishang.yaml</span><span>kubectl get engineer rishang</span></div>
+<pre><span class="k">apiVersion:</span> people.dev/v1
+<span class="k">kind:</span> PlatformEngineer
+<span class="k">metadata:</span>
+  <span class="k">name:</span> rishang-bhavsar
+  <span class="k">labels:</span>
+    <span class="k">location:</span> ahmedabad-in
+    <span class="k">experience:</span> <span class="yrs" data-suffix="+y">5+y</span>
+<span class="k">spec:</span>
+  <span class="k">clouds:</span> [aws, azure]
+  <span class="k">iac:</span> terraform
+  <span class="k">delivery:</span> argocd   <span class="c"># gitops all the way</span>
+  <span class="k">certs:</span> [cka, kcsa, terraform-003, rhce]
+<span class="k">status:</span>
+  <span class="k">phase:</span> <span class="phase" id="phase" data-state="Ready">Ready</span>
+  <span class="k">conditions:</span>
+  - <span class="k">type:</span> InfraAsCode     <span class="k">status:</span> <span class="cond" data-state="True">"True"</span>
+  - <span class="k">type:</span> GitOpsSynced    <span class="k">status:</span> <span class="cond" data-state="True">"True"</span>
+  - <span class="k">type:</span> CostOptimized   <span class="k">status:</span> <span class="cond" data-state="True">"True"</span>
+  - <span class="k">type:</span> OpenToWork      <span class="k">status:</span> <span class="cond" data-state="True">"True"</span></pre>
+  </div>
+</div>
+
+<section id="impact">
+  <div class="sec-head">
+    <div>
+      <h2>Results</h2>
+      <p class="note">What changed, by how much, and how I did it.</p>
+    </div>
+    <div class="diffs">
+      <article class="diff">
+        <h3>Cut AWS spend by more than half at SmartSense</h3>
+        <p>I moved the platform from shared multi-tenancy to a single-tenant architecture designed for SOC 2, HIPAA and ISO, with every resource defined in Terraform. Each client got isolation, and the bill still went down.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>tenancy: shared      aws_cost: 100%</span></div>
+          <div class="p"><span>+</span><span>tenancy: per-client  aws_cost: under 50%</span></div>
+        </div>
+      </article>
+      <article class="diff">
+        <h3>Took lab validation from weeks to hours at KodeKloud</h3>
+        <p>Validating course labs was manual work that took weeks. I built a framework that tests and validates them automatically, then added AI to generate and fix lab content.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>lab validation: weeks, manual</span></div>
+          <div class="p"><span>+</span><span>lab validation: a few hours, automated</span></div>
+        </div>
+      </article>
+      <article class="diff">
+        <h3>Cut internal dev infrastructure cost 70% at OpenXcell</h3>
+        <p>I took this on myself. I reworked the internal development stack so it cost far less to run, and it got faster too.</p>
+        <div class="lines mono">
+          <div class="m"><span>-</span><span>dev_infra_cost: 100%</span></div>
+          <div class="p"><span>+</span><span>dev_infra_cost: 30%, faster</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="oss">
+  <div class="sec-head">
+    <div>
+      <h2>Projects</h2>
+      <p class="note">Infrastructure and AI tools I maintain in the open. Counts update live from each registry.</p>
+    </div>
+    <div class="showcase">
+      <article class="feat">
+        <div class="feat-stat">
+          <p class="big" data-live="https://img.shields.io/terraform/module/dt/Rishang/fargate/aws.json">230k</p>
+          <p class="unit">downloads on the Terraform Registry</p>
+        </div>
+        <div class="feat-body">
+          <h3><a href="https://github.com/Rishang/terraform-aws-fargate">terraform-aws-fargate</a></h3>
+          <p>One module for an ECS Fargate service: the service itself, load balancer target groups and listener rules, service discovery, plus policy and scheduled autoscaling. You get it without hand-rolling the same HCL for every app.</p>
+          <pre class="snippet mono"><code><span class="c"># main.tf</span>
+module "app" {
+  source  = "Rishang/fargate/aws"
+  version = "1.4.3"
+}</code></pre>
+          <p class="links"><a href="https://registry.terraform.io/modules/Rishang/fargate/aws/latest">Registry</a><a href="https://github.com/Rishang/terraform-aws-fargate">Source</a></p>
+        </div>
+      </article>
+
+      <article class="feat">
+        <div class="feat-stat">
+          <p class="big" data-live="https://img.shields.io/pepy/dt/install-release.json">75k</p>
+          <p class="unit">PyPI downloads, <span data-live="https://img.shields.io/github/stars/Rishang/install-release.json">159</span> GitHub stars</p>
+        </div>
+        <div class="feat-body">
+          <h3><a href="https://github.com/Rishang/install-release">install-release</a></h3>
+          <p>A package manager for the tools that don't have one. Point it at a GitHub, GitLab or Codeberg repo, and it grabs the right binary for your OS, then keeps it updated. Works on Linux, macOS and WSL.</p>
+          <pre class="snippet mono"><code>pip install -U install-release
+ir get https://github.com/denoland/deno
+ir upgrade</code></pre>
+          <p class="links"><a href="https://github.com/Rishang/install-release">Source</a><a href="https://pypi.org/project/install-release/">PyPI</a></p>
+        </div>
+      </article>
+
+      <article class="feat">
+        <div class="feat-stat">
+          <p class="big">2 charts</p>
+          <p class="unit">published on Artifact Hub</p>
+        </div>
+        <div class="feat-body">
+          <h3><a href="https://github.com/Rishang/helm-charts">helm-charts</a></h3>
+          <p><strong>loki-stack</strong> is a full observability stack in one install: Loki for logs, Prometheus and Alertmanager for metrics, Grafana for dashboards, and Grafana Alloy for log collection (Promtail is deprecated).</p>
+          <p><strong>component-chart</strong> deploys any app component, from API servers to databases, from a single values.yaml. Deployments, services, ingress, autoscaling and cron jobs, without writing a chart per app.</p>
+          <pre class="snippet mono"><code>helm repo add common-charts https://rishang.github.io/helm-charts/charts
+helm install loki-stack common-charts/loki-stack -n monitoring --create-namespace
+helm install api common-charts/component-chart -f values.yaml</code></pre>
+          <p class="links"><a href="https://rishang.github.io/helm-charts/loki-stack/introduction">loki-stack docs</a><a href="https://rishang.github.io/helm-charts/component-chart/introduction">component-chart docs</a><a href="https://artifacthub.io/packages/search?repo=common-charts">Artifact Hub</a><a href="https://github.com/Rishang/helm-charts">Source</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="sec-head more">
+    <div><h3 class="more-h">More tools</h3></div>
+    <ul class="projects">
+      <li><a href="https://github.com/Rishang/cu">
+        <span class="name">cu</span>
+        <span class="what">One Go binary for everyday cloud chores. Fuzzy-pick from AWS, Azure Key Vault, HashiCorp Vault, Infisical and Kubernetes, and get JSON you can pipe into jq. Also does semantic config diffs and format conversion.</span>
+        <span class="where mono">github</span></a></li>
+      <li><a href="https://github.com/Rishang/agno-spec-builder">
+        <span class="name">agno-spec-builder</span>
+        <span class="what">Define Agno AI agents, teams, workflows, MCP servers and knowledge bases in YAML. It validates the spec, then builds the runtime.</span>
+        <span class="where mono">github</span></a></li>
+      <li><a href="https://github.com/Rishang/hterm">
+        <span class="name">hterm</span>
+        <span class="what">A web terminal server in Rust with a built-in MCP server, so AI agents and people can share a shell. Read-only by default, with basic or proxy auth and TLS.</span>
+        <span class="where mono">github</span></a></li>
+      <li><a href="https://github.com/Rishang/aws-oidc-broker">
+        <span class="name">aws-oidc-broker</span>
+        <span class="what">OpenID credential broker for AWS IAM roles. An alternative to AWS SSO that supports OIDC federation.</span>
+        <span class="where mono" data-live="https://img.shields.io/docker/pulls/rishang/aws-oidc-broker.json" data-suffix=" pulls">2k pulls</span></a></li>
+      <li><a href="https://github.com/ss-rishang/aws-tagger">
+        <span class="name">aws-tagger</span>
+        <span class="what">Tags hand-made AWS resources with owner and creation date, then nudges owners on Slack to clean up.</span>
+        <span class="where mono">github</span></a></li>
+      <li><a href="https://github.com/Rishang/aws-autoscale-warmup">
+        <span class="name">aws-autoscale-warmup</span>
+        <span class="what">Scales AWS capacity up on a schedule, ahead of known traffic peaks.</span>
+        <span class="where mono">github</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="sec-head">
+    <div>
+      <h2>Stack and tooling</h2>
+      <p class="note">What I reach for, and what I've actually done with it.</p>
+    </div>
+    <dl class="tooling">
+      <div class="tool-row">
+        <dt>Cloud</dt>
+        <dd>
+          <ul class="stack core"><li>AWS</li><li>Azure</li></ul>
+          <p>Compliance-grade single-tenant AWS (SOC 2, HIPAA, ISO), multi-account tenant stacks, and cost work that took bills down 50% and 70%.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Infrastructure as code</dt>
+        <dd>
+          <ul class="stack core"><li>Terraform</li><li>Ansible</li><li>Helm</li></ul>
+          <p>Everything starts in Terraform. I publish reusable modules and charts, and I wrote a scanner that turns click-ops AWS resources back into Terraform.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Kubernetes and GitOps</dt>
+        <dd>
+          <ul class="stack core"><li>Kubernetes</li><li>EKS</li><li>ArgoCD</li><li>Docker</li><li>Cilium / eBPF</li></ul>
+          <p>Every Kubernetes resource goes through ArgoCD, across every environment. I'm CKA and KCSA certified, and I've given a talk on Cilium and eBPF.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Observability</dt>
+        <dd>
+          <ul class="stack core"><li>Grafana</li><li>Prometheus</li><li>Loki</li><li>Alloy</li></ul>
+          <p>I maintain loki-stack, a one-install observability chart, and I've spoken twice on observability for AI and LLM apps.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Identity and security</dt>
+        <dd>
+          <ul class="stack core"><li>OIDC</li><li>Keycloak</li><li>IAM</li><li>Zero trust</li></ul>
+          <p>I moved AWS access to OIDC federation with Keycloak, and built aws-oidc-broker to do it without AWS SSO. Background in penetration testing.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>AI for operations</dt>
+        <dd>
+          <ul class="stack core"><li>Claude Code</li><li>MCP</li><li>AgentGateway</li><li>Agno</li></ul>
+          <p>Claude Code connected to Grafana and Kubernetes through MCP servers, so developers and DevOps can troubleshoot by asking questions instead of digging. I also built agno-spec-builder, which turns YAML specs into Agno agents and workflows.</p>
+        </dd>
+      </div>
+      <div class="tool-row">
+        <dt>Code and data</dt>
+        <dd>
+          <ul class="stack"><li>Python</li><li>Bash</li><li>Go</li><li>Rust</li><li>FastAPI</li><li>Django</li><li>Node.js (basics)</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li></ul>
+          <p>Python is my default for tooling. Go when a CLI should ship as one static binary, like cu, and Rust for hterm. Bash for glue. CI/CD runs on GitHub Actions or GitLab CI.</p>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sec-head">
+    <div>
+      <h2>Experience</h2>
+      <p class="note"><span class="yrs" data-suffix="+ years">5+ years</span> of DevOps, from IoT pipelines to compliance-grade AWS.</p>
+    </div>
+    <ol class="jobs" reversed>
+      <li class="job">
+        <time>2025 – now</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://smartsensesolutions.com/">SmartSense</a>, GIFT City, Gandhinagar</p>
+          <p class="scope">AWS and Azure infrastructure for clients with strict compliance needs.</p>
+          <ul>
+            <li>Cut AWS cost by more than 50% by migrating from multi-tenancy to a secure single-tenant architecture aligned with SOC 2, HIPAA and ISO.</li>
+            <li>Put every Kubernetes resource under GitOps with ArgoCD, so every environment deploys from version control.</li>
+            <li>Made troubleshooting faster for developers and DevOps by connecting Claude Code to Grafana and Kubernetes through AgentGateway and MCP servers.</li>
+            <li>Brought hand-made AWS resources under Terraform with a scanner that generates config from live stacks.</li>
+            <li>Kept test accounts clean with <a href="https://github.com/ss-rishang/aws-tagger">AWS Autotagger</a> (open source). It tags each resource with its owner and creation date, then reminds owners on Slack to delete stale PoCs.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <time>2023 – 2025</time>
+        <div>
+          <h3>Lab DevOps Engineer</h3>
+          <p class="org"><a href="https://kodekloud.com/">KodeKloud</a>, remote</p>
+          <p class="scope">The hands-on cloud labs behind KodeKloud's DevOps courses.</p>
+          <ul>
+            <li>Cut lab validation from weeks to a few hours with an automated testing framework, and used AI to generate, fix and manage lab content.</li>
+            <li>Gave learners real AWS accounts safely, with fine-grained role-based access per lab and an in-house cloud-nuke framework that cleans up each session.</li>
+            <li>Built LabUtils, so the team could see lab details and Docker image deprecation alerts in one place instead of digging through files, repos and links.</li>
+            <li>Built and maintained labs for AWS, Kubernetes, Terraform, GitLab, GitHub, Azure, OpenAI and Taskfile.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <time>2022 – 2023</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/techholding">TechHolding</a>, Ahmedabad</p>
+          <ul>
+            <li>Delivered client infrastructure entirely as code, with Terraform and GitOps.</li>
+            <li>Hardened infrastructure against penetration attacks.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <time>2021 – 2022</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/openxcell">OpenXcell</a>, Ahmedabad</p>
+          <p class="scope">Infrastructure for fintech, crypto and banking projects.</p>
+          <ul>
+            <li>Cut internal development infrastructure cost by 70%, and made it faster, on my own initiative.</li>
+            <li>Moved AWS authentication to OIDC federation with Keycloak and GitLab/GitHub CI/CD, and built custom AWS OIDC brokers in Python.</li>
+            <li>Automated the internal Kubernetes stack and client EKS clusters with Terraform.</li>
+            <li>Named Employee of the Month.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <time>2021</time>
+        <div>
+          <h3>DevOps Engineer</h3>
+          <p class="org"><a href="https://www.linkedin.com/company/electromech-corporation">ElectroMech Corporation</a>, Ahmedabad</p>
+          <ul>
+            <li>Built <a href="https://github.com/Rishang/aws-autoscale-warmup">aws-autoscale-warmup</a> (open source) for scheduled autoscaling.</li>
+            <li>Automated multi-account AWS tenant stacks with Terraform.</li>
+            <li>Streamed IoT device logs through Lambda into Timestream, with QuickSight dashboards, keeping cost and performance in check.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="talks">
+  <div class="sec-head">
+    <div>
+      <h2>Talks</h2>
+      <p class="note">Meetups and conferences around Ahmedabad and Gandhinagar.</p>
+    </div>
+    <ol class="talks" reversed>
+      <li>
+        <time datetime="2025-05-24">May 2025</time>
+        <div>
+          <a href="https://luma.com/ol1j8d23" class="t">Observability for AI applications</a>
+          <p>Cloud Native Day, IAR Gandhinagar</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2025-02-15">Feb 2025</time>
+        <div>
+          <a href="https://gdg.community.dev/events/details/google-gdg-cloud-gandhinagar-presents-observability-meetup-gift-city/" class="t">Observability for LLMs and AI applications</a>
+          <p>GDG Cloud Gandhinagar, Observability Meetup GIFT City</p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2024-05-04">May 2024</time>
+        <div>
+          <a href="https://ocgroups.dev/cncf/group/ahmedabad/event/uqcwdzy" class="t">Introduction to Cilium and eBPF for Kubernetes</a>
+          <p>Cloud Native Ahmedabad x Grafana Ahmedabad</p>
+        </div>
+      </li>
+      <li>
+        <time>Earlier</time>
+        <div>
+          <a href="https://www.opensourceweekend.org/" class="t">Open Source Weekend</a>
+          <p>Community speaker, Ahmedabad</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="creds">
+  <div class="sec-head">
+    <div>
+      <h2>Certifications</h2>
+    </div>
+    <div>
+      <ul class="certs">
+        <li><a href="https://tinyurl.com/3fdhu62u">Certified Kubernetes Administrator (CKA)</a><span class="by">Linux Foundation</span></li>
+        <li><a href="https://tinyurl.com/bdv9hdch">Kubernetes and Cloud Native Security Associate (KCSA)</a><span class="by">Linux Foundation</span></li>
+        <li><a href="https://tinyurl.com/mthneb9d">Terraform Associate (003)</a><span class="by">HashiCorp</span></li>
+        <li><span>Red Hat Certified Engineer (RHCE)</span><span class="by">Red Hat</span></li>
+      </ul>
+      <div class="extra">
+        <p>B.E. in Information Technology, Aditya Silver Oak, 2021. A few older posts on <a href="https://medium.com/@rishangbhavsar">Medium</a>.</p>
+        <p>Off the clock: photography and guitar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Hiring for platform or DevOps?</h2>
+  <p>I'm open to platform and DevOps roles, remote or with relocation. Email is the fastest way to reach me.</p>
+  <div class="ctas">
+    <a class="btn primary" href="mailto:rishangbhavsar22@gmail.com">rishangbhavsar22@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/rishang-bhavsar-b19042181/">LinkedIn</a>
+    <a class="btn" href="https://medium.com/@rishangbhavsar">Medium</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>Rishang Bhavsar, Ahmedabad</span>
+  <button class="theme-toggle" type="button" id="theme">Toggle theme</button>
+</footer>
+</div>
+
+<script>
+// Years in DevOps, counted from the first job (April 2021).
+(function () {
+  var yrs = Math.floor((Date.now() - Date.UTC(2021, 3, 30)) / 31557600000);
+  document.querySelectorAll('.yrs').forEach(function (el) { el.textContent = yrs + el.dataset.suffix; });
+})();
+
+// Refresh download and star counts from shields.io; the baked-in numbers stay if it fails.
+document.querySelectorAll('[data-live]').forEach(function (el) {
+  fetch(el.dataset.live).then(function (r) { return r.json(); }).then(function (d) {
+    if (d && d.value && !/invalid|inaccessible|error/i.test(d.value)) el.textContent = d.value + (el.dataset.suffix || '');
+  }).catch(function () {});
+});
+// Reconcile the manifest once on load: conditions flip Unknown -> True, phase goes Ready.
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var conds = document.querySelectorAll('.cond');
+  var phase = document.getElementById('phase');
+  conds.forEach(function (c) { c.dataset.state = 'Unknown'; c.textContent = '"Unknown"'; });
+  phase.dataset.state = 'Progressing'; phase.textContent = 'Progressing';
+  conds.forEach(function (c, i) {
+    setTimeout(function () { c.dataset.state = 'True'; c.textContent = '"True"'; }, 500 + i * 450);
+  });
+  setTimeout(function () { phase.dataset.state = 'Ready'; phase.textContent = 'Ready'; }, 500 + conds.length * 450);
+})();
+
+(function () {
+  var root = document.documentElement, key = 'theme';
+  try { var saved = localStorage.getItem(key); if (saved) root.dataset.theme = saved; } catch (e) {}
+  document.getElementById('theme').addEventListener('click', function () {
+    var dark = root.dataset.theme
+      ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

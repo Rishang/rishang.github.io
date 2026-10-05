@@ -1,0 +1,52 @@
+# Rishang Bhavsar
+
+> DevOps engineer in Ahmedabad, India, building secure, self-service AWS and Azure platforms with Terraform, Kubernetes and ArgoCD. 5+ years of DevOps experience (since April 2021). CKA, KCSA, Terraform Associate and RHCE certified. Open to platform and DevOps roles, remote or with relocation.
+
+Currently a DevOps Engineer at SmartSense (GIFT City, Gandhinagar). Before that, Lab DevOps Engineer at KodeKloud, where he automated the hands-on cloud labs behind its DevOps courses. Focus areas: infrastructure as code, GitOps, cloud cost, identity and federation (OIDC, Keycloak), observability, and AI-assisted operations with MCP.
+
+Key results:
+
+- Cut AWS cost by more than 50% at SmartSense by migrating from multi-tenancy to a secure single-tenant architecture aligned with SOC 2, HIPAA and ISO.
+- Took lab validation at KodeKloud from weeks of manual work to a few hours with an automated testing framework, plus AI-driven generation and fixes for lab content.
+- Cut internal development infrastructure cost by 70% at OpenXcell while improving performance.
+
+Contact: rishangbhavsar22@gmail.com
+
+## Profile
+
+- [Portfolio](https://rishang.github.io/): Full portfolio with results, projects, experience and talks
+- [GitHub](https://github.com/Rishang): Open-source code
+- [LinkedIn](https://www.linkedin.com/in/rishang-bhavsar-b19042181/): Professional profile
+- [Medium](https://medium.com/@rishangbhavsar): Older blog posts
+
+## Open source projects
+
+- [terraform-aws-fargate](https://registry.terraform.io/modules/Rishang/fargate/aws/latest): Terraform module for ECS Fargate services (service, load balancer target groups and listener rules, service discovery, policy and scheduled autoscaling). About 230k downloads on the Terraform Registry.
+- [install-release](https://github.com/Rishang/install-release): Python CLI that installs and updates single-binary tools from GitHub, GitLab and Codeberg releases on Linux, macOS and WSL. About 75k PyPI downloads.
+- [helm-charts](https://github.com/Rishang/helm-charts): Two Helm charts on Artifact Hub. loki-stack is a one-install observability stack (Loki, Prometheus, Alertmanager, Grafana, Grafana Alloy). component-chart deploys any app component from a single values.yaml.
+- [cu](https://github.com/Rishang/cu): Go CLI for everyday cloud work. Fuzzy-picks resources from AWS, Azure Key Vault, HashiCorp Vault, Infisical and Kubernetes and prints JSON; also semantic config diffs and format conversion.
+- [agno-spec-builder](https://github.com/Rishang/agno-spec-builder): Declarative YAML builder for Agno AI agents, teams, workflows, MCP servers and knowledge bases.
+- [hterm](https://github.com/Rishang/hterm): Web terminal server in Rust with a built-in MCP server; read-only by default, with basic or proxy auth and TLS.
+- [aws-oidc-broker](https://github.com/Rishang/aws-oidc-broker): OpenID credential broker for AWS IAM roles, an alternative to AWS SSO that supports OIDC federation. About 2k Docker pulls.
+- [aws-tagger](https://github.com/ss-rishang/aws-tagger): Tags manually created AWS resources with owner and creation date, and sends Slack reminders to clean up stale resources.
+- [aws-autoscale-warmup](https://github.com/Rishang/aws-autoscale-warmup): Scheduled AWS autoscaling ahead of known traffic peaks.
+
+## Experience
+
+- [SmartSense](https://smartsensesolutions.com/): DevOps Engineer, May 2025 to present. Terraform for AWS and Azure, GitOps with ArgoCD, single-tenant compliant AWS architecture, AI-assisted observability with Claude Code, AgentGateway and MCP servers for Grafana and Kubernetes.
+- [KodeKloud](https://kodekloud.com/): Lab DevOps Engineer, March 2023 to April 2025. Cloud lab platform with role-based AWS access and cloud-nuke cleanup, automated lab testing, AI-driven lab content, LabUtils visibility platform.
+- TechHolding: DevOps Engineer, September 2022 to February 2023. Infrastructure as code with Terraform and GitOps, security hardening.
+- OpenXcell: DevOps Engineer, December 2021 to September 2022. Fintech, crypto and banking infrastructure; OIDC federation with Keycloak; EKS automation with Terraform; 70% internal infra cost cut; Employee of the Month.
+- ElectroMech Corporation: DevOps Engineer, April 2021 to October 2021. Multi-account AWS with Terraform, IoT log streaming with Lambda, Timestream and QuickSight.
+
+## Talks
+
+- [Observability for AI applications](https://luma.com/ol1j8d23): Cloud Native Day, IAR Gandhinagar, May 2025
+- [Observability for LLMs and AI applications](https://gdg.community.dev/events/details/google-gdg-cloud-gandhinagar-presents-observability-meetup-gift-city/): GDG Cloud Gandhinagar, February 2025
+- [Introduction to Cilium and eBPF for Kubernetes](https://ocgroups.dev/cncf/group/ahmedabad/event/uqcwdzy): Cloud Native Ahmedabad x Grafana Ahmedabad, May 2024
+
+## Optional
+
+- Certifications: Certified Kubernetes Administrator (CKA), Kubernetes and Cloud Native Security Associate (KCSA), HashiCorp Terraform Associate (003), Red Hat Certified Engineer (RHCE)
+- Skills: AWS, Azure, Kubernetes, EKS, Terraform, Ansible, Helm, ArgoCD, Docker, Linux, Grafana, Prometheus, Loki, OIDC, Keycloak, Python, Go, Rust, Bash, FastAPI, Django, PostgreSQL, Redis, MongoDB
+- Education: B.E. in Information Technology, Aditya Silver Oak, 2021
