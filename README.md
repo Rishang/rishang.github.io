@@ -8,7 +8,7 @@ Portfolio of Rishang Bhavsar, DevOps and platform engineer. Live at **https://ri
 |---|---|
 | `index.html` | The portfolio page. One file with inline CSS and JS, no build step. |
 | `llms.txt` | The same portfolio as plain text for LLMs ([llmstxt.org](https://llmstxt.org)). Served at [/llms.txt](https://rishang.github.io/llms.txt). |
-| `AGENTS.md` | Rules for editing, including keeping `index.html` and `llms.txt` in sync. `CLAUDE.md` points to it. |
+| `AGENTS.md` | Rules for editing, including keeping `index.html` and `llms.txt` in sync. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is. |
 
 ## Edit and preview
