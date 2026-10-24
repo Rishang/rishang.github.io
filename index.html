@@ -317,7 +317,7 @@ footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: .9rem; display
             <li>Put every Kubernetes resource under GitOps with ArgoCD, so every environment deploys from version control.</li>
             <li>Made troubleshooting faster for developers and DevOps by connecting Claude Code to Grafana and Kubernetes through AgentGateway and MCP servers.</li>
             <li>Brought hand-made AWS resources under Terraform with a scanner that generates config from live stacks.</li>
-            <li>Kept test accounts clean with <a href="https://github.com/ss-rishang/aws-tagger">AWS Autotagger</a> (open source). It tags each resource with its owner and creation date, then reminds owners on Slack to delete stale PoCs.</li>
+            <li>Kept test accounts clean with <a href="https://github.com/smartSenseSolutions/aws-auto-tagger">AWS Autotagger</a> (open source). It tags each resource with its owner and creation date, then reminds owners on Slack to delete stale PoCs.</li>
           </ul>
         </div>
       </li>
@@ -512,7 +512,7 @@ helm install api common-charts/component-chart -f values.yaml</code></pre>
         <span class="name">aws-oidc-broker</span>
         <span class="what">OpenID credential broker for AWS IAM roles. An alternative to AWS SSO that supports OIDC federation.</span>
         <span class="where mono" data-live="https://img.shields.io/docker/pulls/rishang/aws-oidc-broker.json" data-suffix=" pulls">2k pulls</span></a></li>
-      <li><a href="https://github.com/ss-rishang/aws-tagger">
+      <li><a href="https://github.com/smartSenseSolutions/aws-auto-tagger">
         <span class="name">aws-tagger</span>
         <span class="what">Tags hand-made AWS resources with owner and creation date, then nudges owners on Slack to clean up.</span>
         <span class="where mono">github</span></a></li>
